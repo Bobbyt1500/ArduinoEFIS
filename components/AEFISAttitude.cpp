@@ -50,19 +50,19 @@ void Attitude::draw(UTFT& TFTDisp, UTFT_Geometry geo) {
 
         // Orange rect
         if (y1 < last_lower) {
-        TFTDisp.setColor(209, 126, 25);
-        TFTDisp.fillRect(70, last_lower, 350, y1);
+            TFTDisp.setColor(209, 126, 25);
+            TFTDisp.fillRect(70, last_lower, 350, y1);
         }
 
         // Blue rect
         if (y2 > last_upper) {
-        TFTDisp.setColor(209, 126, 25);
-        TFTDisp.fillRect(70, last_upper, 350, y2);
+            TFTDisp.setColor(25, 89, 209);
+            TFTDisp.fillRect(70, last_upper, 350, y2);
         }
         
         last_lower = y1;
         last_upper = y2;
-    } else if (y2 > y1) {
+    } else {
         // Positive Roll
         for (int i = 0; i < (y2-y1); ++i) {
             int y = i + y1;
@@ -85,85 +85,20 @@ void Attitude::draw(UTFT& TFTDisp, UTFT_Geometry geo) {
 
         // Orange rect
         if (y2 < last_lower) {
-        TFTDisp.setColor(209, 126, 25);
-        TFTDisp.fillRect(70, last_lower, 350, y2);
+            TFTDisp.setColor(209, 126, 25);
+            TFTDisp.fillRect(70, last_lower, 350, y2);
         }
         
         // Blue rect
         if (y1 > last_upper) {
-        TFTDisp.setColor(25, 89, 209);
-        TFTDisp.fillRect(70, last_upper, 350, y1);
+            TFTDisp.setColor(25, 89, 209);
+            TFTDisp.fillRect(70, last_upper, 350, y1);
         }
         
         last_lower = y2;
         last_upper = y1;
     }
     
-
-    
-    
-
-
-    /*
-
-    if (y1 < 40) {
-        y1 = 40;
-    } else if (y1 > 300) {
-        y1 = 300;
-    }
-
-    if (y2 < 40) {
-        y2 = 40;
-    } else if (y2 > 300) {
-        y2 = 300;
-    }
-    
-    if (y1 >= y2) {
-        // Positive Degrees/No Roll
-
-        // Orange Triangle
-        TFTDisp.setColor(209, 126, 25);
-        geo.fillTriangle(70, y1, 350, y1, 350, y2);
-
-        // Orange rect
-        if (y1 < last_lower) {
-        TFTDisp.fillRect(70, last_lower, 350, y1);
-        }
-
-        // Blue Triangle
-        TFTDisp.setColor(25, 89, 209);
-        geo.fillTriangle(70, y2, 70, y1, 350, y2);
-        
-        // Blue rect
-        if (y2 > last_upper) {
-        TFTDisp.fillRect(70, last_upper, 350, y2);
-        }
-        
-        last_lower = y1;
-        last_upper = y2;
-        
-    } else {
-        // Negative Degrees 
-        
-        TFTDisp.setColor(209, 126, 25);
-        geo.fillTriangle(70, y1, 70, y2, 350, y2);
-
-        // Orange rect
-        if (y2 < last_lower) {
-        TFTDisp.fillRect(70, last_lower, 350, y2);
-        }
-        
-        TFTDisp.setColor(25, 89, 209);
-        geo.fillTriangle(70, y1, 350, y1, 350, y2);
-
-        // Blue rect
-        if (y1 > last_upper) {
-        TFTDisp.fillRect(70, last_upper, 350, y1);
-        }
-        
-        last_lower = y2;
-        last_upper = y1;
-    }*/
     
     
 }
